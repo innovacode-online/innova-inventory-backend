@@ -17,6 +17,7 @@ class Category extends Model
     // Relaciones
     public function products(): BelongsTo
     {
+        //? BELONGS TO INDICA QUE LA OTRA TABLA ES LA PRINCIPAL
         return $this->belongsTo(Product::class);
     }
 }
