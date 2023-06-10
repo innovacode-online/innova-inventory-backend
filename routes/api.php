@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -16,8 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+//     Route::post('/auth/logout',   [ AuthController::class, 'logout'  ]);
+
+// });
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    //! MOVER ACA POR QUE ASI OPTENEMOS AL USUARIO CON SU TOKEN
+    Route::post('/auth/logout',   [ AuthController::class, 'logout'  ]);
+
 });
 
 // PRODUCTS ENDPOINTS
@@ -31,3 +44,7 @@ Route::delete('/products/{id}', [ ProductController::class, 'destroy'   ]);
 
 // CATEGORIES ENDPOINTS
 Route::apiResource('/categories', CategoryController::class);
+
+// AUTH ENDPOINTS
+Route::post('/auth/login',    [ AuthController::class, 'login'   ]);
+Route::post('/auth/register', [ AuthController::class, 'register']);
