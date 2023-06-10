@@ -30,8 +30,4 @@ Route::delete('/products/{id}', [ ProductController::class, 'destroy'   ]);
 
 
 // CATEGORIES ENDPOINTS
-Route::get('/categories',         [ CategoryController::class, 'index'     ]);
-Route::get('/categories/{id}',    [ CategoryController::class, 'show'      ]);
-Route::post('/categories',        [ CategoryController::class, 'store'     ]);
-Route::patch('/categories/{id}',  [ CategoryController::class, 'update'    ]);
-Route::delete('/categories/{id}', [ CategoryController::class, 'destroy'   ]);
+Route::apiResource('/categories', CategoryController::class);
