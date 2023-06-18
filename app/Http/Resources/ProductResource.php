@@ -19,7 +19,9 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'createdAt' => $this->created_at,
+            'description' => $this->description,
             'stock' => $this->stock,
+            'slug' => $this->slug,
             'price' => $this->price,
             'image' => $this->image,
             'category' => Category::where('id', $this->category_id)->get()[0]
