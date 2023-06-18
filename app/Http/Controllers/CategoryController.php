@@ -34,6 +34,7 @@ class CategoryController extends Controller
      */
     public function show(string $term)
     {
+        // ! Enseñar orWhere por si acaso
         return Category::where('id',$term)
             ->orWhere('slug',$term)
             ->get();
@@ -56,8 +57,6 @@ class CategoryController extends Controller
         
         $category->update($request->all());
         
-
-        // TODO: AGREGAR ACTUALIZACION DEL PROFILE 
         return response()->json($category, 200);
     
     }
@@ -78,7 +77,7 @@ class CategoryController extends Controller
         $category->delete();
         return response()->json([
             'message' => 'Category delete'
-        ], 404);
+        ], 200);
     }
 
     function createSlug($text) {

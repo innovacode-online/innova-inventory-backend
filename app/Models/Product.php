@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
         
     protected $fillable = [
-        'name', 'description', 'category_id', 'stock', 'image'
+        'name', 'description', 'category_id', 'stock', 'image', 'slug', 'price'
     ];
 
     // Relaciones

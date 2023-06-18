@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description');
             $table->integer('stock');
+            $table->integer('price');
 
             // TODO! Incluir despues para ejemplo de Rollback
             $table->string('image');

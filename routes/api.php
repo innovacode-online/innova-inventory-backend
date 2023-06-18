@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,6 @@ Route::apiResource('/categories', CategoryController::class);
 // AUTH ENDPOINTS
 Route::post('/auth/login',    [ AuthController::class, 'login'   ]);
 Route::post('/auth/register', [ AuthController::class, 'register']);
+
+// IMAGES
+Route::apiResource('/upload', ImageController::class);
