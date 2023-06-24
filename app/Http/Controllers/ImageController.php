@@ -13,9 +13,7 @@ class ImageController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
-        
+    {   
         // TODO?: SUBIDA DE IMAGEN
         //? Correr -> php artisan storage:link
         $file = $request->file('image');

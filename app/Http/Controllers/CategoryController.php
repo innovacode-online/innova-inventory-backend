@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {        
-        $validatedData = $request->validated();
+        $request->validated();
         
         $request['slug'] = $this->createSlug($request['name']);
         $category = Category::create($request->all());
