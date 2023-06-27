@@ -32,6 +32,9 @@ Route::middleware('auth:sanctum')->group(function(){
 
     //! MOVER ACA POR QUE ASI OPTENEMOS AL USUARIO CON SU TOKEN
     Route::post('/auth/logout',   [ AuthController::class, 'logout'  ]);
+        
+    // SALES
+    Route::apiResource('/sales', SaleController::class);
 
 });
 
@@ -55,6 +58,4 @@ Route::post('/auth/register', [ AuthController::class, 'register']);
 Route::apiResource('/upload', ImageController::class);
 
 
-// SALES
-Route::apiResource('/sales', SaleController::class);
 
