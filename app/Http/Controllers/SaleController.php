@@ -63,4 +63,8 @@ class SaleController extends Controller
 
         return response(['message' => 'Venta realizada exitosamente'], 200);
     }
+
+    public function show( string $id ){
+        return new SaleResource( Sale::where('id', $id)->with('products')->get()[0]);
+    }
 }

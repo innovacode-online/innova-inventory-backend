@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\ProductSale;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,9 +18,9 @@ class SaleResource extends JsonResource
         return [
             'id' => $this->id,
             'client' => $this->client,
-            'products' => new ProductCollection( $this->products ),
             'total' => $this->total,
             'createdAt' => $this->created_at,
+            'details' => new ProductSaleCollection( ProductSale::where('sale_id', $this->id)->get())  
         ];
     }
 }
