@@ -13,6 +13,7 @@ docker compose up -d
 
 Correr el proyectp
 ```
+php artisan storage:link
 php artisan serve
 ```
 
